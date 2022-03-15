@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple DOM example</title>
+
+    <style>
+      .highlight {
+        color: white;
+        background-color: black;
+        padding: 10px;
+        width: 250px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-      <section>
-        <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
-        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
-      </section>
+    <section>
+      <img
+        src="dinosaur.png"
+        alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth."
+      />
+      <p>
+        Here we will add a link to the
+        <a href="https://www.mozilla.org/">Mozilla homepage</a>
+      </p>
+    </section>
+    <script>
+      const link = document.querySelector("a"); //Selects "a" element
+      link.textContent = "Mozzila Developer Network"; //changes anchor text
+      link.href = "https://developer.mozilla.org"; // sets href of anchor
+
+      const img = document.querySelector("img");
+
+      const sect = document.querySelector("section"); //selects section element
+      const para = document.createElement("p"); //creates a paragraph element in the section element
+      para.textContent = "We hope you enjoyed the ride."; //text for paragraph element in the section element
+
+      sect.appendChild(para); //adds the new paragraph element to end of the section element
+
+      const text = document.createTextNode(
+        " - the premier source for web development knowledge."
+      ); //create a text
+      const linkPara = document.querySelector("p"); //selects paragraph element
+      linkPara.appendChild(text); //adds the new text to end of selected paragraph element in the seciton element
+
+      <!-- sect.removeChild(linkPara); --> //removes linkPara from section
+
+      <!-- img.remove() --> //removes img element
+
+      para.setAttribute("class", "highlight");
+    </script>
   </body>
 </html>
